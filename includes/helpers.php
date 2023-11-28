@@ -13,17 +13,20 @@
         $borrado = false;
         if (isset($_SESSION['errores'])) {
             $_SESSION['errores'] = null;	
-            unset($_SESSION['errores']);
+            // unset($_SESSION['errores']);
+            $borrado = true;
         }
 
         if (isset($_SESSION['errores_entrada'])) {
             $_SESSION['errores_entrada'] = null;	
             //unset($_SESSION['errores_entrada']);
+            $borrado = true;
         }
 
         if (isset($_SESSION['completado'])) {
             $_SESSION['completado'] = null;
-            unset($_SESSION['completado']);
+            // unset($_SESSION['completado']);
+            $borrado = true;
         }
         return $borrado;
     }

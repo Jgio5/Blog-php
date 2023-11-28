@@ -7,7 +7,7 @@
             <!-- Bottoni -->
             <a href="crear-entradas.php" class="boton boton-verde">Crea post</a>
             <a href="crear-categoria.php" class="boton">Crea categoria</a>
-            <a href="cerrar.php" class="boton boton-naranja">I miei dati</a>
+            <a href="mis-datos.php" class="boton boton-naranja">I miei dati</a>
             <a href="cerrar.php" class="boton boton-rojo">Chiudi sessione</a>
         </div>
     <?php endif; ?>
