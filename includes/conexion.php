@@ -5,7 +5,7 @@
     $servidor = 'localhost';
     $usuario = 'administrador';
     $password = 'administrador';
-    $basededatos = "blog_master";
+    $basededatos = "new_blog";
     $db = mysqli_connect($servidor, $usuario, $password, $basededatos);
 
     mysqli_query($db, "SET NAMES 'utf8'");

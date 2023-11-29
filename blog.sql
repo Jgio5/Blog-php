@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS blog_master;
+CREATE DATABASE IF NOT EXISTS new_blog;
 
-USE blog_master;
+USE new_blog;
 
 CREATE TABLE usuarios(
 id          int(255) auto_increment not null,
