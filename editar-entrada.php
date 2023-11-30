@@ -1,22 +1,28 @@
+<?php require_once 'includes/redireccion.php'; ?>
+<?php require_once 'includes/conexion.php'; ?>
+<?php require_once 'includes/cabecera.php'; ?>
+
 <?php
-
-    require_once 'includes/redireccion.php';
-    require_once 'includes/cabecera.php';
-    require_once 'includes/lateral.php';
-
+    $entrada_actual = conseguirEntrada($db, $_GET['id']);
+    if(!isset($entrada_actual['id'])) {
+        header('Location: index.php');
+    } 
 ?>
+
+<?php require_once 'includes/cabecera.php'; ?>
+<?php require_once 'includes/lateral.php'; ?>
 
 <!-- caja principal -->
 <div id="principal">
-    <h1>Crea entradas</h1>
-    <p>Includi nuove entradas al blog perché gli usuari possano leggere e godere del nostro contenuto.</p>
+    <h1>Editar entrada</h1>
+    <p>Edita tu entrada <?=$entrada_actual['titulo']?>.</p>
     <br/>
-    <form action="guardar-entrada.php" method="post">
+    <form action="guardar-entrada.php?editar=<?=$entrada_actual['id']?>" method="post">
         <label for="titulo">Nombre entrada</label>
-        <input type="text" name="titulo"/>
+        <input type="text" name="titulo" value="<?=$entrada_actual['titulo']?>"/>
         <?php echo isset($_SESSION['errores_entrada']) ? mostrarError($_SESSION['errores_entrada'], 'titulo') : ''; ?>
         <label for="descripcion">Descripcion:</label>
-        <textarea type="text" name="descripcion"></textarea>
+        <textarea type="text" name="descripcion"><?=$entrada_actual['descripcion']?></textarea>
         <?php echo isset($_SESSION['errores_entrada']) ? mostrarError($_SESSION['errores_entrada'], 'descripcion') : ''; ?>
         <label for="categoria">Categoria</label>
         <select name="categoria">
@@ -25,7 +31,9 @@
                 if(!empty($categorias)) :
                 while($categoria = mysqli_fetch_assoc($categorias)) :
             ?>
-                <option value="<?= $categoria['id']?>">
+                <option value="<?= $categoria['id']?>"
+                <?=($categoria['id'] == $entrada_actual['categoria_id']) ? 'selected="selected"' : '' ?>
+                >
                     <?= $categoria['nombre']?>
                 </option>
             <?php 
@@ -38,5 +46,8 @@
     </form>
     <?php borrarErrores(); ?>
 </div>
+
+
+<?php require_once 'includes/lateral.php'; ?>
 
 <?php require_once 'includes/pie.php'; ?>

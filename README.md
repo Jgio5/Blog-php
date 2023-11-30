@@ -7,5 +7,5 @@
 5. [x] Creazione post per chi fa il login
 6. [x] Visualizzazione post nella home
 7. [x] Pagina di modifica dati utente
-8. [ ] Cancellare e modificare post
+8. [x] Cancellare e modificare post
 9. [ ] Inserire una barra di ricerca
