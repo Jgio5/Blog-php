@@ -8,4 +8,4 @@
 6. [x] Visualizzazione post nella home
 7. [x] Pagina di modifica dati utente
 8. [x] Cancellare e modificare post
-9. [ ] Inserire una barra di ricerca
+9. [x] Inserire una barra di ricerca
